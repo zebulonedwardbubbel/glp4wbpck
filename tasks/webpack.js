@@ -8,9 +8,9 @@ let config = {
     entry: './js/main.js',
     output: {
         filename: './js/bundle.js',
-        path: path.resolve(__dirname, '../site')
+        path: path.resolve(__dirname, '../dist')
     },
-    context: path.resolve(__dirname, '../site'),
+    context: path.resolve(__dirname, '../src'),
     module: {
         rules: [
             {
