@@ -1,5 +1,6 @@
 import gulp from 'gulp';
 import sass from 'gulp-sass';
+import browserSync from 'browser-sync'
 import postcss from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
@@ -20,7 +21,10 @@ export function styles() {
         cssnano()
     ];
     return gulp.src(paths.styles.src)
+        .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(postcss(postcssPlugins))
-        .pipe(gulp.dest(paths.styles.dist));
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(paths.styles.dist))
+        .pipe(browserSync.stream()) 
 }

@@ -1,6 +1,7 @@
 import gulp from 'gulp'
 import browserSync from 'browser-sync'
 import webpack from 'webpack'
+import styles from './styles'
 import webpackDevMiddleware from 'webpack-dev-middleware'
 // if HMR is needed
 // import webpackHotMiddleware from 'webpack-hot-middleware'
@@ -23,5 +24,6 @@ export function server() {
 
     browser.init(config)
 
-    gulp.watch('src/**/*').on('change', () => browser.reload())
+    gulp.watch('src/**/*.js').on('change', () => browser.reload())
+    gulp.watch('src/**/*.scss').on('change', () => styles)
 }
