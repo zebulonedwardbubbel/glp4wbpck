@@ -1,3 +1,3 @@
-import testLog from './module'
+import testLog from './module';
 
 testLog();

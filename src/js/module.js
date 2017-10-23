@@ -1,4 +1,4 @@
 export default function() {
     const sht = 'SHT!';
-    console.log(`stgstgsst! & ${sht}`);
+    console.log(`And now log a variable: ${sht}`);
 }
