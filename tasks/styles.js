@@ -5,15 +5,19 @@ import postcss from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 import sourcemaps from 'gulp-sourcemaps';
+import {server} from './server';
+import {paths} from './index';
 
-const paths = {
-    styles: {
-        src: 'src/styles/**/*.scss',
-        dist: 'dist/styles/'
-    }
+function styles() {
+    return gulp.src(paths.styles.src)
+        .pipe(sourcemaps.init())
+        .pipe(sass())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(paths.styles.dev))
+        .pipe(browserSync.stream())
 }
 
-export function styles() {
+function stylesBuild() {
     const postcssPlugins = [
         autoprefixer({
             browsers: ['last 2 version']
@@ -26,5 +30,6 @@ export function styles() {
         .pipe(postcss(postcssPlugins))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(paths.styles.dist))
-        .pipe(browserSync.stream()) 
 }
+
+module.exports = {styles, stylesBuild}
