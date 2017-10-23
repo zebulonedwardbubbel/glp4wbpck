@@ -1,12 +1,11 @@
 import gulp from 'gulp';
 import sass from 'gulp-sass';
-import browserSync from 'browser-sync'
+import browserSync from 'browser-sync';
 import postcss from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 import sourcemaps from 'gulp-sourcemaps';
-import {server} from './server';
-import {paths} from './index';
+import { paths } from './index';
 
 function styles() {
     return gulp.src(paths.styles.src)
@@ -14,7 +13,7 @@ function styles() {
         .pipe(sass())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(paths.styles.dev))
-        .pipe(browserSync.stream())
+        .pipe(browserSync.stream());
 }
 
 function stylesBuild() {
@@ -29,7 +28,10 @@ function stylesBuild() {
         .pipe(sass())
         .pipe(postcss(postcssPlugins))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(paths.styles.dist))
+        .pipe(gulp.dest(paths.styles.dist));
 }
 
-module.exports = {styles, stylesBuild}
+module.exports = {
+    styles,
+    stylesBuild
+};

@@ -1,10 +1,10 @@
-import path from 'path'
-import webpack from 'webpack'
-import process from 'process'
+import path from 'path';
+import webpack from 'webpack';
+import process from 'process';
 
-const isProduction = (process.env.NODE_ENV === 'production')
+const isProduction = (process.env.NODE_ENV === 'production');
 
-let config = {
+const config = {
     entry: './js/main.js',
     output: {
         filename: './js/bundle.js',
@@ -17,7 +17,7 @@ let config = {
                 enforce: 'pre',
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: "eslint-loader",
+                loader: 'eslint-loader'
             },
             {
                 test: /\.js$/,
@@ -29,8 +29,8 @@ let config = {
             }
         ]
     },
-    plugins: isProduction ? [ new webpack.optimize.UglifyJsPlugin() ] : []
-}
+    plugins: isProduction ? [new webpack.optimize.UglifyJsPlugin()] : []
+};
 
 // config with HMR
 // let config = {
@@ -50,12 +50,18 @@ let config = {
 
 function scripts() {
     return new Promise(resolve => webpack(config, (err, stats) => {
-        if (err) console.log('Webpack', err)
+        if (err) {
+            console.log('Webpack', err);
+        } else {
             console.log(stats.toString({
                 stats: 'normal'
-            }))
-        resolve()
-    }))
+            }));
+        }
+        resolve();
+    }));
 }
 
-module.exports = {config, scripts}
+module.exports = {
+    config,
+    scripts
+};
