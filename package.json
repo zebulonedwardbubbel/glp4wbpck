@@ -8,6 +8,9 @@
         "cross-env": "^5.0.5",
         "cssnano": "^3.10.0",
         "del": "^3.0.0",
+        "eslint": "^4.9.0",
+        "eslint-config-mito": "^8.0.0",
+        "eslint-loader": "^1.9.0",
         "gulp": "gulpjs/gulp#4.0",
         "gulp-postcss": "^7.0.0",
         "gulp-sass": "^3.1.0",
@@ -25,5 +28,8 @@
             "env"
         ],
         "babelrc": false
+    },
+    "eslintConfig": {
+        "extends": "mito"
     }
 }
