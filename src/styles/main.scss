@@ -1,5 +1,8 @@
+@import 'fonts';
+
 p {
-    background-color: darken(pink, 30%);
-    color: green;
+    background-color: darken(pink, 20%);
+    color: white;
     outline: 5px solid lime;
+    font-family: SourceSansPro;
 }
