@@ -36,6 +36,9 @@
         "babelrc": false
     },
     "eslintConfig": {
-        "extends": "mito"
+        "extends": "mito",
+        "rules": {
+            "linebreak-style": "off"
+        }
     }
 }
