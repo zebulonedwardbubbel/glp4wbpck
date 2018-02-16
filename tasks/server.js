@@ -11,11 +11,12 @@ import { paths } from './index';
 const browser = browserSync.create();
 const bundler = webpack(webpackConfig);
 
-function reload() {
+function reload(done) {
     browser.reload();
+    done();
 }
 
-export function server() {
+export function server(done) {
     const config = {
         server: 'src',
         middleware: [
@@ -26,7 +27,11 @@ export function server() {
     };
 
     browser.init(config);
-
-    gulp.watch(paths.js.src).on('change', () => browser.reload());
-    gulp.watch(paths.styles.src, gulp.series(styles, reload));
+    done();
 }
+
+// gulp.watch(paths.js.src).on('change', () => browser.reload());
+// gulp.watch(paths.styles.src, gulp.series(styles, reload));
+const watchStyles = () => gulp.watch(paths.styles.src, gulp.series(styles, reload));
+
+export const watch = gulp.series(styles, watchStyles);

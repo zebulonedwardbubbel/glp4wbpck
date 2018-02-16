@@ -1,5 +1,6 @@
 import gulp from 'gulp';
 import { scripts } from './webpack';
+import { watch } from './server';
 import { server } from './server';
 import { styles, stylesBuild } from './styles';
 import { images } from './images';
@@ -33,7 +34,7 @@ function copyFonts() {
         .pipe(gulp.dest(paths.fonts.dist));
 }
 
-export const dev = gulp.series(styles, server);
+export const dev = gulp.series(server, watch);
 
 export const build = gulp.series(clean, gulp.parallel(stylesBuild, scripts, images, copyFonts));
 
