@@ -2,6 +2,8 @@ import gulp from 'gulp';
 import browserSync from 'browser-sync';
 import webpack from 'webpack';
 import { styles } from './styles';
+import { scripts } from './webpack';
+import { clean } from './index';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 // if HMR is desired
 // import webpackHotMiddleware from 'webpack-hot-middleware'
@@ -27,10 +29,11 @@ export function server(done) {
     };
 
     browser.init(config);
+    gulp.watch(paths.js.src, gulp.series(reload))
     done();
 }
 
-// gulp.watch(paths.js.src).on('change', () => browser.reload());
+// const watchScripts = () => gulp.watch(paths.js.src, gulp.series(reload));
 // gulp.watch(paths.styles.src, gulp.series(styles, reload));
 const watchStyles = () => gulp.watch(paths.styles.src, gulp.series(styles, reload));
 
