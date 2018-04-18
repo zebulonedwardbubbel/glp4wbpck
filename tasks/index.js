@@ -8,6 +8,10 @@ import del from 'del';
 import changed from 'gulp-changed';
 
 export const paths = {
+    html: {
+        src: 'src/**/*.html',
+        dist: 'dist/'
+    },
     styles: {
         src: 'src/styles/**/*.scss',
         dev: 'src/styles/',
@@ -21,7 +25,7 @@ export const paths = {
         dist: 'dist/img/'
     },
     fonts: {
-        src: 'src/fonts/**/*.{woff|woff2}',
+        src: 'src/fonts/**/*.{woff,woff2}',
         dist: 'dist/fonts'
     }
 };
@@ -30,12 +34,16 @@ export const clean = () => del(['dist']);
 
 function copyFonts() {
     return gulp.src(paths.fonts.src)
-        .pipe(changed(paths.fonts.dist))
         .pipe(gulp.dest(paths.fonts.dist));
-}
+};
+
+function copyHTML() {
+    return gulp.src(paths.html.src)
+        .pipe(gulp.dest(paths.html.dist));
+};
 
 export const dev = gulp.series(server, watch);
 
-export const build = gulp.series(clean, gulp.parallel(stylesBuild, scripts, images, copyFonts));
+export const build = gulp.series(clean, gulp.parallel(stylesBuild, scripts, images, copyFonts, copyHTML));
 
 export default dev;
