@@ -3,6 +3,7 @@ import browserSync from 'browser-sync';
 import webpack from 'webpack';
 import { styles } from './styles';
 import { scripts } from './webpack';
+import { templating } from './templating';
 import { clean } from './index';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 // if HMR is desired
@@ -36,5 +37,6 @@ export function server(done) {
 // const watchScripts = () => gulp.watch(paths.js.src, gulp.series(reload));
 // gulp.watch(paths.styles.src, gulp.series(styles, reload));
 const watchStyles = () => gulp.watch(paths.styles.src, gulp.series(styles, reload));
+const watchTemplates = () => gulp.watch(paths.templates.src, gulp.series(templating, reload));
 
-export const watch = gulp.series(styles, watchStyles);
+export const watch = gulp.series(templating, styles, watchTemplates, watchStyles);

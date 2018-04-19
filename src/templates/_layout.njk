@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gulp 4 with Webpack</title>
+        <link rel="stylesheet" href="styles/main.css">
+    </head>
+    <body>
+        {% include "partials/_header.njk" %}
+
+        {% block content %}{% endblock %}
+
+        {% include "partials/_footer.njk" %}
+        <script src="js/bundle.js"></script>
+    </body>
+</html>

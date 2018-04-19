@@ -1,5 +1,6 @@
 import gulp from 'gulp';
 import { scripts } from './webpack';
+import { templating } from './templating';
 import { watch } from './server';
 import { server } from './server';
 import { styles, stylesBuild } from './styles';
@@ -8,8 +9,8 @@ import del from 'del';
 import changed from 'gulp-changed';
 
 export const paths = {
-    html: {
-        src: 'src/**/*.html',
+    templates: {
+        src: 'src/templates/*.njk',
         dist: 'dist/'
     },
     styles: {
@@ -37,13 +38,13 @@ function copyFonts() {
         .pipe(gulp.dest(paths.fonts.dist));
 };
 
-function copyHTML() {
-    return gulp.src(paths.html.src)
-        .pipe(gulp.dest(paths.html.dist));
-};
+// function copyHTML() {
+//     return gulp.src(paths.html.src)
+//         .pipe(gulp.dest(paths.html.dist));
+// };
 
 export const dev = gulp.series(server, watch);
 
-export const build = gulp.series(clean, gulp.parallel(stylesBuild, scripts, images, copyFonts, copyHTML));
+export const build = gulp.series(clean, gulp.parallel(templating, stylesBuild, scripts, images, copyFonts));
 
 export default dev;
