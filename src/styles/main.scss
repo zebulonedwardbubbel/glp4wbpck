@@ -1,8 +1,3 @@
 @import 'fonts';
-
-p {
-    background-color: darken(red, 20%);
-    color: pink;
-    outline: 10px solid yellowgreen;
-    font-family: SourceSansPro;
-}
+@import 'typography';
+@import 'layout';

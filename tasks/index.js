@@ -11,6 +11,7 @@ import changed from 'gulp-changed';
 export const paths = {
     templates: {
         src: 'src/templates/*.njk',
+        dev: 'src/',
         dist: 'dist/'
     },
     styles: {

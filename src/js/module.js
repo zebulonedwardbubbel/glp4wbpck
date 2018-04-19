@@ -1,4 +1,12 @@
 export default function() {
-    const sht = 'SsdT!';
-    console.log(`And now log a variable: ${sht}`);
+    const testString = 'JS transpiling works';
+    const paragraph = document.querySelector('.paragraph');
+
+    const ourFunction = () => {
+        if (paragraph) {
+            paragraph.textContent = testString;
+        }
+    };
+
+    ourFunction();
 }

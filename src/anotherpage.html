@@ -7,11 +7,19 @@
         <link rel="stylesheet" href="styles/main.css">
     </head>
     <body>
-        {% include "partials/_header.njk" %}
+        <header>
+    <h1>Site</h1>
+</header>
 
-        {% block content %}{% endblock %}
+        
+    <main>
+        <h2>Site content of another page</h2>
+    </main>
 
-        {% include "partials/_footer.njk" %}
+
+        <footer>
+    <h2>footer</h2>
+</footer>
         <script src="js/bundle.js"></script>
     </body>
 </html>

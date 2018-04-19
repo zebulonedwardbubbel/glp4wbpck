@@ -34,9 +34,7 @@ export function server(done) {
     done();
 }
 
-// const watchScripts = () => gulp.watch(paths.js.src, gulp.series(reload));
-// gulp.watch(paths.styles.src, gulp.series(styles, reload));
 const watchStyles = () => gulp.watch(paths.styles.src, gulp.series(styles, reload));
 const watchTemplates = () => gulp.watch(paths.templates.src, gulp.series(templating, reload));
 
-export const watch = gulp.series(templating, styles, watchTemplates, watchStyles);
+export const watch = gulp.series(templating, styles, gulp.parallel(watchStyles, watchTemplates));
