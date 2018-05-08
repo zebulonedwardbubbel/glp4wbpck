@@ -1,4 +1,7 @@
 {
+    "name": "glp4wbpck",
+    "version": "1.0.0",
+    "description": "basic front-end workflow based on gulp 4 & webpack",
     "devDependencies": {
         "autoprefixer": "^7.1.5",
         "babel-core": "^6.26.0",

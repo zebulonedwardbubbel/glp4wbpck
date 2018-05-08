@@ -1,12 +1,16 @@
-export default function() {
-    const testString = 'JS transpiling works';
-    const paragraph = document.querySelector('.paragraph');
-
-    const ourFunction = () => {
-        if (paragraph) {
-            paragraph.textContent = testString;
-        }
+function testSht() {
+    const firstVar = { name: 'Jesse' };
+    const secondVar = {
+        amount: 7,
+        product: 'Meth',
+        unitprice: 42
     };
+    const message = `Hello ${firstVar.name},
+    want to buy ${secondVar.amount} ounce of ${secondVar.product} for
+    a total of ${secondVar.amount * secondVar.unitprice} bucks?`;
 
-    ourFunction();
+    const paragraph = document.querySelector('p');
+    paragraph.textContent = message;
 }
+
+export default testSht;

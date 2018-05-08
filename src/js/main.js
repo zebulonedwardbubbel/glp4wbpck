@@ -1,3 +1,3 @@
-import testModule from './module';
+import testSht from './module';
 
-testModule();
+testSht();
