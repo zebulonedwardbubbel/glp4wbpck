@@ -44,5 +44,8 @@
         "rules": {
             "linebreak-style": "off"
         }
+    },
+    "dependencies": {
+        "node-sass": "^4.9.4"
     }
 }
