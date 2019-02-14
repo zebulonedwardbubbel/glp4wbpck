@@ -1,5 +1,9 @@
+$font-path: '../fonts';
+$font-family: sourcesanspro;
+$font-style: 'regular';
+
 @font-face {
-    font-family: SourceSansPro;
-    src: url(../fonts/SourceSansPro-Regular/sourcesanspro-regular.woff2) format('woff2'),
-         url(../fonts/SourceSansPro-Regular/sourcesanspro-regular.woff2) format('woff');
+    font-family: $font-family;
+    src: url('#{$font-path}/#{$font-family}-#{$font-style}/#{$font-family}-#{$font-style}.woff2') format('woff2'),
+         url('#{$font-path}/#{$font-family}-#{$font-style}/#{$font-family}-#{$font-style}.woff') format('woff');
 }
